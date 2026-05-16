@@ -18,3 +18,16 @@ export type Product = {
   creationAt: string;
   updatedAt: string;
 };
+
+export type ItemsAndCount = {
+  item: Product;
+  count: number;
+};
+
+export type CartDetails = {
+  totalItems: number;
+  items: ItemsAndCount[];
+  totalPrice: number;
+  shippingCharge: number;
+  totalWithShippingCharge: number;
+};

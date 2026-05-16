@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# E-commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern e-commerce frontend application built using React, TypeScript, and Vite. It provides a seamless shopping experience with features like product browsing, detailed product views, and a shopping cart.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The project is organized as follows:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+public/
+  favicon.svg       # Favicon for the application
+  icons.svg         # SVG icons used in the app
+src/
+  App.tsx           # Main application component
+  index.css         # Global styles
+  main.tsx          # Application entry point
+  routes.tsx        # Application routes
+  assets/           # Static assets like images
+  components/       # Reusable UI components
+    Button.tsx
+    CartItemCard.tsx
+    ItemCard.tsx
+    ItemsGrid.tsx
+  contexts/         # Context API files
+    cart-context.ts
+  hook/             # Custom hooks
+    useCart.tsx
+  pages/            # Application pages
+    CartPage.tsx
+    HomePage.tsx
+    ProductDetailsPage.tsx
+  providers/        # Context providers
+    CartContextProvider.tsx
+  services/         # API service files
+    products.ts
+  types/            # TypeScript type definitions
+    products.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Setup and Run Instructions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Follow these steps to set up and run the application:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/indexdothtml/E-com-frontend.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd E-com-frontend
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+### Running the Development Server
+
+Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
 ```
+
+The application will be available at `http://localhost:5173`.
+
+### Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+The build files will be generated in the `dist/` directory.
+
+### Previewing the Production Build
+
+To preview the production build locally:
+
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+The application will be available at `http://localhost:4173`.
+
+## License
+
+This project is licensed under the MIT License.

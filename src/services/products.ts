@@ -35,3 +35,17 @@ export async function getAllProducts() {
     };
   }
 }
+
+export async function getProductById(productId: string) {
+  try {
+    const response = await fetch(
+      `https://api.escuelajs.co/api/v1/products/${productId}`,
+    );
+    return response.json();
+  } catch (error) {
+    return {
+      success: false,
+      message: `Category fetch failed! ${error}`,
+    };
+  }
+}

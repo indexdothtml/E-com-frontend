@@ -42,16 +42,10 @@ function ItemGrid({ filter, selectedCategory = "" }: ItemGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-4 gap-2">
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 ">
       {products.length !== 0 ? (
         products.map((product: Product) => (
-          <ItemCard
-            key={product.id}
-            imageURL={product.images[0]}
-            heading={product.title}
-            description={product.description}
-            price={product.price}
-          />
+          <ItemCard key={product.id} {...product} />
         ))
       ) : (
         <p>Products are not available with this category.</p>
